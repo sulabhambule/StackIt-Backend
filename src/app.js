@@ -54,6 +54,10 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok", message: "Server is running" });
 });
 
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "Welcome to the API" });
+});
+
 // 404 handler
 app.use((req, res, next) => {
   next(new ApiError(404, `Route ${req.originalUrl} not found`));
